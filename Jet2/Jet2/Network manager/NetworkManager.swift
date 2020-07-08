@@ -12,10 +12,10 @@ class NetworkManager
 {
     static let shared = NetworkManager()
     var session = URLSession.shared
-
+    
     public init(){}
     
-    func apiArticles(apiURL:String) {
+    func apiArticles(apiURL:String, completion : @escaping (Result<[Article], Error>)-> () ){
         
         guard let requestUrl = URL(string: apiURL) else { return }
         let request = URLRequest(url: requestUrl)
@@ -23,15 +23,27 @@ class NetworkManager
         session.dataTask(with: request, completionHandler: {
             (data, response, err) in
             
-            guard let data = data else { return }
+            if let err = err {
+                completion(.failure(err))
+            }
             
-            self.parseArticles(data)
-            
+            do {
+                let articles = try JSONDecoder().decode([Article].self, from: data!)
+                //self.arrArticles += articles
+                print(articles.count)
+                
+                completion(.success(articles))
+                
+            }
+            catch let jsonErr {
+                print("Error serialising json", jsonErr)
+                completion(.failure(jsonErr))
+            }
             }).resume()
         
     }
     
-    func apiUsers(apiURL:String) {
+    func apiUsers(apiURL:String, completion : @escaping (Result<[User], Error>)-> () ){
         
         guard let requestUrl = URL(string: apiURL) else { return }
         let request = URLRequest(url: requestUrl)
@@ -39,42 +51,23 @@ class NetworkManager
         session.dataTask(with: request, completionHandler: {
             (data, response, err) in
             
-            guard let data = data else { return }
+            if let err = err {
+                completion(.failure(err))
+            }
             
-            self.parseUsers(data)
-            
+            do {
+                let users = try JSONDecoder().decode([User].self, from: data!)
+                //self.arrArticles += articles
+                print(users.count)
+                
+                completion(.success(users))
+                
+            }
+            catch let jsonErr {
+                print("Error serialising json", jsonErr)
+                completion(.failure(jsonErr))
+            }
             }).resume()
         
     }
 }
-
-extension NetworkManager {
-    
-    fileprivate func parseArticles(_ data: Data) {
-        do {
-            let articles = try JSONDecoder().decode([Article].self, from: data)
-            print(articles.count)
-        }
-        catch let jsonErr {
-            print("Error serialising json", jsonErr)
-        }
-    }
-    
-    fileprivate func parseUsers(_ data: Data) {
-        do {
-            let users = try JSONDecoder().decode([User].self, from: data)
-            print(users.count)
-        }
-        catch let jsonErr {
-            print("Error serialising json", jsonErr)
-        }
-    }
-}
-
-
-
-
-
-
-
-

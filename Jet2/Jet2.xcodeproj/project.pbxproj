@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		083A91C424B5C703006C4A76 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083A91C324B5C703006C4A76 /* DataParser.swift */; };
+		083A91CB24B60550006C4A76 /* PersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083A91CA24B60550006C4A76 /* PersistentManager.swift */; };
 		088521D724B44098000D3054 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088521D624B44098000D3054 /* AppDelegate.swift */; };
 		088521DB24B44098000D3054 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088521DA24B44098000D3054 /* ViewController.swift */; };
 		088521DE24B44098000D3054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 088521DC24B44098000D3054 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 
 /* Begin PBXFileReference section */
 		083A91C324B5C703006C4A76 /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
+		083A91CA24B60550006C4A76 /* PersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManager.swift; sourceTree = "<group>"; };
 		088521D324B44098000D3054 /* Jet2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jet2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		088521D624B44098000D3054 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		088521DA24B44098000D3054 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		083A91C924B6052D006C4A76 /* Persistent manager */ = {
+			isa = PBXGroup;
+			children = (
+				083A91CA24B60550006C4A76 /* PersistentManager.swift */,
+			);
+			path = "Persistent manager";
+			sourceTree = "<group>";
+		};
 		088521CA24B44098000D3054 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +113,7 @@
 		088521D524B44098000D3054 /* Jet2 */ = {
 			isa = PBXGroup;
 			children = (
+				083A91C924B6052D006C4A76 /* Persistent manager */,
 				08CF089F24B574DE006EA608 /* Network manager */,
 				088521D624B44098000D3054 /* AppDelegate.swift */,
 				088521DA24B44098000D3054 /* ViewController.swift */,
@@ -277,6 +288,7 @@
 				083A91C424B5C703006C4A76 /* DataParser.swift in Sources */,
 				088521DB24B44098000D3054 /* ViewController.swift in Sources */,
 				088521D724B44098000D3054 /* AppDelegate.swift in Sources */,
+				083A91CB24B60550006C4A76 /* PersistentManager.swift in Sources */,
 				088521E124B44098000D3054 /* Jet2.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
