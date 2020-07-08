@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		083A91C424B5C703006C4A76 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083A91C324B5C703006C4A76 /* DataParser.swift */; };
 		088521D724B44098000D3054 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088521D624B44098000D3054 /* AppDelegate.swift */; };
-		088521D924B44098000D3054 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088521D824B44098000D3054 /* SceneDelegate.swift */; };
 		088521DB24B44098000D3054 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088521DA24B44098000D3054 /* ViewController.swift */; };
 		088521DE24B44098000D3054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 088521DC24B44098000D3054 /* Main.storyboard */; };
 		088521E124B44098000D3054 /* Jet2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 088521DF24B44098000D3054 /* Jet2.xcdatamodeld */; };
@@ -16,6 +16,7 @@
 		088521E624B4409C000D3054 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 088521E424B4409C000D3054 /* LaunchScreen.storyboard */; };
 		088521F124B4409C000D3054 /* Jet2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088521F024B4409C000D3054 /* Jet2Tests.swift */; };
 		088521FC24B4409C000D3054 /* Jet2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088521FB24B4409C000D3054 /* Jet2UITests.swift */; };
+		08CF08A124B574EF006EA608 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CF08A024B574EF006EA608 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,9 +37,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		083A91C324B5C703006C4A76 /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
 		088521D324B44098000D3054 /* Jet2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jet2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		088521D624B44098000D3054 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		088521D824B44098000D3054 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		088521DA24B44098000D3054 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		088521DD24B44098000D3054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		088521E024B44098000D3054 /* Jet2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Jet2.xcdatamodel; sourceTree = "<group>"; };
@@ -51,6 +52,7 @@
 		088521F724B4409C000D3054 /* Jet2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Jet2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		088521FB24B4409C000D3054 /* Jet2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jet2UITests.swift; sourceTree = "<group>"; };
 		088521FD24B4409C000D3054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08CF08A024B574EF006EA608 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +103,8 @@
 		088521D524B44098000D3054 /* Jet2 */ = {
 			isa = PBXGroup;
 			children = (
+				08CF089F24B574DE006EA608 /* Network manager */,
 				088521D624B44098000D3054 /* AppDelegate.swift */,
-				088521D824B44098000D3054 /* SceneDelegate.swift */,
 				088521DA24B44098000D3054 /* ViewController.swift */,
 				088521DC24B44098000D3054 /* Main.storyboard */,
 				088521E224B4409C000D3054 /* Assets.xcassets */,
@@ -129,6 +131,15 @@
 				088521FD24B4409C000D3054 /* Info.plist */,
 			);
 			path = Jet2UITests;
+			sourceTree = "<group>";
+		};
+		08CF089F24B574DE006EA608 /* Network manager */ = {
+			isa = PBXGroup;
+			children = (
+				08CF08A024B574EF006EA608 /* NetworkManager.swift */,
+				083A91C324B5C703006C4A76 /* DataParser.swift */,
+			);
+			path = "Network manager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,10 +273,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08CF08A124B574EF006EA608 /* NetworkManager.swift in Sources */,
+				083A91C424B5C703006C4A76 /* DataParser.swift in Sources */,
 				088521DB24B44098000D3054 /* ViewController.swift in Sources */,
 				088521D724B44098000D3054 /* AppDelegate.swift in Sources */,
 				088521E124B44098000D3054 /* Jet2.xcdatamodeld in Sources */,
-				088521D924B44098000D3054 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
