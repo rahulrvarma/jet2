@@ -9,13 +9,21 @@
 import Foundation
 import CoreData
 
+struct EntityAttributes{
+    static let entityOfflineData = "Offlinedata"
+    static let attributeAPIName = "apiname"
+    static let attributePageNumber = "pagenumber"
+    static let attributeResponseData = "responsedata"
+}
+
+
 class PersistentManager {
-    static let shared = NetworkManager()
+    static let shared = PersistentManager()
     public init(){}
 
-    var context : NSManagedObjectContext { return persistentContainer.viewContext }
+    private var context : NSManagedObjectContext { return persistentContainer.viewContext }
     
-    lazy var persistentContainer: NSPersistentContainer = {
+    private lazy var persistentContainer: NSPersistentContainer = {
            /*
             The persistent container for the application. This implementation
             creates and returns a container, having loaded the store for the
@@ -57,5 +65,111 @@ class PersistentManager {
                }
            }
        }
+
+    
+
+    func insertData(apiName : String, apiData : Data, page : Int){
+        
+        let pageNumber : String = String(page)
+
+        let offlineEntity = NSEntityDescription.entity(forEntityName: EntityAttributes.entityOfflineData, in: context)!
+        let offlineData = NSManagedObject(entity: offlineEntity, insertInto: context)
+        offlineData.setValue(apiName, forKeyPath: EntityAttributes.attributeAPIName)
+        offlineData.setValue(apiData, forKey: EntityAttributes.attributeResponseData)
+        offlineData.setValue(pageNumber, forKey: EntityAttributes.attributePageNumber)
+        
+        do {
+            let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+            print(paths[0])
+
+            try context.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
+        
+    func retrieveData(apiName : String, page : Int) -> Data? {
+        
+        let pageNumber : String = String(page)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: EntityAttributes.entityOfflineData)
+        let predicate1 = NSPredicate(format: "\(EntityAttributes.attributeAPIName) = %@", apiName)
+        let predicate2 = NSPredicate(format: "\(EntityAttributes.attributePageNumber) = %@", pageNumber)
+        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2])
+        
+        do {
+            let result = try context.fetch(fetchRequest)
+            var finaldata = Data()
+            for data in result as! [NSManagedObject] {
+                finaldata = (data.value(forKey: EntityAttributes.attributeResponseData) as! Data)
+                break
+            }
+            return finaldata
+        } catch {
+            
+            print("Failed")
+            return nil
+
+        }
+    }
+    
+    /*
+    func updateData(apiName : String, responseData : Data){
+        
+        let fetchRequest:NSFetchRequest<NSFetchRequestResult> = NSFetchRequest.init(entityName: EntityAttributes.entityOfflineData)
+        fetchRequest.predicate = NSPredicate(format: "\(EntityAttributes.attributeAPIName) = %@", apiName)
+        do
+        {
+            let result = try context.fetch(fetchRequest)
+            
+            let objectUpdate = result.first as! NSManagedObject
+            
+            objectUpdate.setValue(responseData, forKey: EntityAttributes.attributeResponseData)
+
+            do{
+                try context.save()
+            }
+            catch
+            {
+                print(error)
+            }
+        }
+        catch
+        {
+            print(error)
+        }
+        
+    }*/
+    
+    
+    func deleteData(apiName : String){
+            
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: EntityAttributes.entityOfflineData)
+            fetchRequest.predicate = NSPredicate(format: "\(EntityAttributes.attributeAPIName) = %@", apiName)
+           
+            do
+            {
+                let result = try context.fetch(fetchRequest)
+                
+                for objectDelete in result
+                {
+                    context.delete(objectDelete as! NSManagedObject)
+                }
+                
+                do{
+                    try context.save()
+                }
+                catch
+                {
+                    print(error)
+                }
+                
+            }
+            catch
+            {
+                print(error)
+            }
+        }
+    
+        
 
 }

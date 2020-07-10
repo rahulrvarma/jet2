@@ -34,6 +34,7 @@ extension ArticleViewController : ArticleDelegate{
  
     func dataReceivedForArticle(articles: [Article]) {
         self.arrArticles += articles
+        print(self.arrArticles.count)
     }
     
 }

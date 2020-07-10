@@ -17,6 +17,7 @@
 		088521E624B4409C000D3054 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 088521E424B4409C000D3054 /* LaunchScreen.storyboard */; };
 		088521F124B4409C000D3054 /* Jet2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088521F024B4409C000D3054 /* Jet2Tests.swift */; };
 		088521FC24B4409C000D3054 /* Jet2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088521FB24B4409C000D3054 /* Jet2UITests.swift */; };
+		08A7434624B82CDA00806769 /* ConnectionCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A7434524B82CDA00806769 /* ConnectionCheck.swift */; };
 		08C636AE24B6E1EA006147D3 /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C636AD24B6E1EA006147D3 /* ArticleViewModel.swift */; };
 		08CF08A124B574EF006EA608 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CF08A024B574EF006EA608 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		088521F724B4409C000D3054 /* Jet2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Jet2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		088521FB24B4409C000D3054 /* Jet2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jet2UITests.swift; sourceTree = "<group>"; };
 		088521FD24B4409C000D3054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08A7434524B82CDA00806769 /* ConnectionCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionCheck.swift; sourceTree = "<group>"; };
 		08C636AD24B6E1EA006147D3 /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
 		08CF08A024B574EF006EA608 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -168,6 +170,7 @@
 			children = (
 				08CF08A024B574EF006EA608 /* NetworkManager.swift */,
 				083A91C324B5C703006C4A76 /* DataParser.swift */,
+				08A7434524B82CDA00806769 /* ConnectionCheck.swift */,
 			);
 			path = "Network manager";
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				088521D724B44098000D3054 /* AppDelegate.swift in Sources */,
 				083A91CB24B60550006C4A76 /* PersistentManager.swift in Sources */,
 				08C636AE24B6E1EA006147D3 /* ArticleViewModel.swift in Sources */,
+				08A7434624B82CDA00806769 /* ConnectionCheck.swift in Sources */,
 				088521E124B44098000D3054 /* Jet2.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
