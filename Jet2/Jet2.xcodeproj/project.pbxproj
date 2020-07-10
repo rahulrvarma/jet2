@@ -10,13 +10,14 @@
 		083A91C424B5C703006C4A76 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083A91C324B5C703006C4A76 /* DataParser.swift */; };
 		083A91CB24B60550006C4A76 /* PersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083A91CA24B60550006C4A76 /* PersistentManager.swift */; };
 		088521D724B44098000D3054 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088521D624B44098000D3054 /* AppDelegate.swift */; };
-		088521DB24B44098000D3054 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088521DA24B44098000D3054 /* ViewController.swift */; };
+		088521DB24B44098000D3054 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088521DA24B44098000D3054 /* ArticleViewController.swift */; };
 		088521DE24B44098000D3054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 088521DC24B44098000D3054 /* Main.storyboard */; };
 		088521E124B44098000D3054 /* Jet2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 088521DF24B44098000D3054 /* Jet2.xcdatamodeld */; };
 		088521E324B4409C000D3054 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 088521E224B4409C000D3054 /* Assets.xcassets */; };
 		088521E624B4409C000D3054 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 088521E424B4409C000D3054 /* LaunchScreen.storyboard */; };
 		088521F124B4409C000D3054 /* Jet2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088521F024B4409C000D3054 /* Jet2Tests.swift */; };
 		088521FC24B4409C000D3054 /* Jet2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088521FB24B4409C000D3054 /* Jet2UITests.swift */; };
+		08C636AE24B6E1EA006147D3 /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08C636AD24B6E1EA006147D3 /* ArticleViewModel.swift */; };
 		08CF08A124B574EF006EA608 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CF08A024B574EF006EA608 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +43,7 @@
 		083A91CA24B60550006C4A76 /* PersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistentManager.swift; sourceTree = "<group>"; };
 		088521D324B44098000D3054 /* Jet2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jet2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		088521D624B44098000D3054 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		088521DA24B44098000D3054 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		088521DA24B44098000D3054 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		088521DD24B44098000D3054 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		088521E024B44098000D3054 /* Jet2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Jet2.xcdatamodel; sourceTree = "<group>"; };
 		088521E224B4409C000D3054 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -54,6 +55,7 @@
 		088521F724B4409C000D3054 /* Jet2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Jet2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		088521FB24B4409C000D3054 /* Jet2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jet2UITests.swift; sourceTree = "<group>"; };
 		088521FD24B4409C000D3054 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		08C636AD24B6E1EA006147D3 /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
 		08CF08A024B574EF006EA608 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,10 +115,11 @@
 		088521D524B44098000D3054 /* Jet2 */ = {
 			isa = PBXGroup;
 			children = (
+				08C636AC24B6E1DA006147D3 /* ViewModels */,
+				08C636AB24B6E1CE006147D3 /* ViewControllers */,
 				083A91C924B6052D006C4A76 /* Persistent manager */,
 				08CF089F24B574DE006EA608 /* Network manager */,
 				088521D624B44098000D3054 /* AppDelegate.swift */,
-				088521DA24B44098000D3054 /* ViewController.swift */,
 				088521DC24B44098000D3054 /* Main.storyboard */,
 				088521E224B4409C000D3054 /* Assets.xcassets */,
 				088521E424B4409C000D3054 /* LaunchScreen.storyboard */,
@@ -142,6 +145,22 @@
 				088521FD24B4409C000D3054 /* Info.plist */,
 			);
 			path = Jet2UITests;
+			sourceTree = "<group>";
+		};
+		08C636AB24B6E1CE006147D3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				088521DA24B44098000D3054 /* ArticleViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		08C636AC24B6E1DA006147D3 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				08C636AD24B6E1EA006147D3 /* ArticleViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		08CF089F24B574DE006EA608 /* Network manager */ = {
@@ -286,9 +305,10 @@
 			files = (
 				08CF08A124B574EF006EA608 /* NetworkManager.swift in Sources */,
 				083A91C424B5C703006C4A76 /* DataParser.swift in Sources */,
-				088521DB24B44098000D3054 /* ViewController.swift in Sources */,
+				088521DB24B44098000D3054 /* ArticleViewController.swift in Sources */,
 				088521D724B44098000D3054 /* AppDelegate.swift in Sources */,
 				083A91CB24B60550006C4A76 /* PersistentManager.swift in Sources */,
+				08C636AE24B6E1EA006147D3 /* ArticleViewModel.swift in Sources */,
 				088521E124B44098000D3054 /* Jet2.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

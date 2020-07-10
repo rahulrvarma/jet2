@@ -15,9 +15,9 @@ class NetworkManager
     
     public init(){}
     
-    func apiArticles(apiURL:String, completion : @escaping (Result<[Article], Error>)-> () ){
+    func apiArticles(page:Int, completion : @escaping (Result<[Article], Error>)-> () ){
         
-        guard let requestUrl = URL(string: apiURL) else { return }
+        guard let requestUrl = URL(string: "https://5e99a9b1bc561b0016af3540.mockapi.io/jet2/api/v1/blogs?page=\(page)&limit=10") else { return }
         let request = URLRequest(url: requestUrl)
 
         session.dataTask(with: request, completionHandler: {
@@ -43,9 +43,9 @@ class NetworkManager
         
     }
     
-    func apiUsers(apiURL:String, completion : @escaping (Result<[User], Error>)-> () ){
+    func apiUsers(page:Int, completion : @escaping (Result<[User], Error>)-> () ){
         
-        guard let requestUrl = URL(string: apiURL) else { return }
+        guard let requestUrl = URL(string: "https://5e99a9b1bc561b0016af3540.mockapi.io/jet2/api/v1/users?page=\(page)&limit=10") else { return }
         let request = URLRequest(url: requestUrl)
 
         session.dataTask(with: request, completionHandler: {
