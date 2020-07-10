@@ -16,9 +16,8 @@ class ArticleViewModel {
     var articleDelegate : ArticleDelegate?
 
     func loadArticles(forPage : Int) {
-    //        let semphore = DispatchSemaphore(value: 0)
+
             NetworkManager.shared.apiArticles(page: forPage) { (result) in
-    //            semphore.signal()
                 switch result {
                 case .success(let article):
 
@@ -28,7 +27,6 @@ class ArticleViewModel {
                     print("Failed to fetch articles : ", err)
                 }
             }
-    //        _ = semphore.wait(timeout: .distantFuture)
         }
         
         
