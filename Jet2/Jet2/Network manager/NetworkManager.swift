@@ -34,41 +34,59 @@ class NetworkManager
                 if let err = err {
                     completion(.failure(err))
                 }
-                
-                do {
+                else{
                     
-                    let result = try JSONDecoder().decode([Article].self, from: data!)
-                    if result.count == 0
-                    {
-                        completion(.success(result))
-                    }
-                    else
-                    {
+                    do {
                         
-                        if page == 1
+                        let result = try JSONDecoder().decode([Article].self, from: data!)
+                        if result.count == 0
                         {
-                            PersistentManager.shared.deleteData(apiName: APINames.APIArticle)
+                            completion(.success(result))
                         }
-                        
-                        PersistentManager.shared.insertData(apiName: APINames.APIArticle, apiData: data!, page: page)
-                        
-                        let retreivedData = PersistentManager.shared.retrieveData(apiName: APINames.APIArticle, page: page)
-                        let articles = try JSONDecoder().decode([Article].self, from: retreivedData!)
-                        
-                        print(articles.count)
-                        
-                        completion(.success(articles))
+                        else
+                        {
+                            
+                            if page == 1
+                            {
+                                PersistentManager.shared.deleteData(apiName: APINames.APIArticle)
+                            }
+                            
+                            PersistentManager.shared.insertData(apiName: APINames.APIArticle, apiData: data!, page: page)
+                            
+                            let retreivedData = PersistentManager.shared.retrieveData(apiName: APINames.APIArticle, page: page)
+                            let articles = try JSONDecoder().decode([Article].self, from: retreivedData!)
+                            
+                            print(articles.count)
+                            
+                            completion(.success(articles))
+                        }
                     }
-                }
-                catch let jsonErr {
-                    print("Error serialising json", jsonErr)
-                    completion(.failure(jsonErr))
+                    catch let jsonErr {
+                        print("Error serialising json", jsonErr)
+                        completion(.failure(jsonErr))
+                    }
+
                 }
             }).resume()
         }
         else
         {
             print("LOAD OFFLINE DATA")
+            
+            do{
+                
+                let retreivedData = PersistentManager.shared.retrieveData(apiName: APINames.APIArticle, page: page)
+                let articles = try JSONDecoder().decode([Article].self, from: retreivedData!)
+                
+                print(articles.count)
+                
+                completion(.success(articles))
+                
+            }
+            catch let jsonErr {
+                print("Error serialising json", jsonErr)
+                completion(.failure(jsonErr))
+            }
         }
     }
     

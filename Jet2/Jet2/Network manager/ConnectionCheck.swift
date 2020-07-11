@@ -23,25 +23,9 @@ class ConnectionCheck {
     }
     
     func startMonitoring() {
-            self.monitor.pathUpdateHandler = { path in
-                self.isConneted = path.status == .satisfied
-            }
+        self.monitor.pathUpdateHandler = { path in
+            self.isConneted = path.status == .satisfied
+            print("CONNECTION :: ",self.isConneted)
         }
-//
-//        func stopMonitoring() {
-//            self.monitor.cancel()
-//        }
-//
-//        func checkConnectionTypeForPath(_ path: NWPath) -> ConnectionType {
-//            if path.usesInterfaceType(.wifi) {
-//                return .wifi
-//            } else if path.usesInterfaceType(.wiredEthernet) {
-//                return .ethernet
-//            } else if path.usesInterfaceType(.cellular) {
-//                return .cellular
-//            }
-//
-//            return .unknown
-//        }
-    
+    }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ArticleDelegate {
-    func dataReceivedForArticle(articles : [Article])
+    func dataReceivedForArticle(articles : [Article]?)
 }
 class ArticleViewModel {
     
@@ -24,7 +24,9 @@ class ArticleViewModel {
                     self.articleDelegate?.dataReceivedForArticle(articles: article)
 
                 case .failure(let err):
-                    print("Failed to fetch articles : ", err)
+                    self.articleDelegate?.dataReceivedForArticle(articles: nil)
+
+                    print("Failed to fetch articles : ", err.localizedDescription)
                 }
             }
         }

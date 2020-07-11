@@ -32,7 +32,11 @@ class ArticleViewController: UIViewController {
         
         tableViewSetup()
         
-        loadArticles()
+        let delay = 1 * Double(NSEC_PER_SEC)
+        let time = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: time, execute: {
+            self.loadArticles()
+        })
     }
 
     func loadArticles() {
@@ -41,20 +45,23 @@ class ArticleViewController: UIViewController {
 }
 
 extension ArticleViewController : ArticleDelegate{
- 
-    func dataReceivedForArticle(articles: [Article]) {
-        
-        if articles.count > 0 {
-            page += 1
-            self.arrArticles += articles
-        }
-        print(self.arrArticles.count)
-        DispatchQueue.main.async {
-            self.tableArticle.reloadData()
-        }
-    }
     
+    func dataReceivedForArticle(articles: [Article]?) {
+        if let nextArticle = articles {
+            
+            if nextArticle.count > 0 {
+                page += 1
+                self.arrArticles += nextArticle
+            }
+            print(self.arrArticles.count)
+            DispatchQueue.main.async {
+                self.tableArticle.reloadData()
+            }
+        }
+        
+    }
 }
+    
 
 
 extension ArticleViewController : UITableViewDataSource, UITableViewDelegate{

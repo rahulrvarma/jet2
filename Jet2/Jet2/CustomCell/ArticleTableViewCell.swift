@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ArticleTableViewCell: UITableViewCell {
 
@@ -20,6 +21,7 @@ class ArticleTableViewCell: UITableViewCell {
     @IBOutlet weak var linkArticleURL: UITextView!
     @IBOutlet weak var lblLikes: UILabel!
     @IBOutlet weak var lblComments: UILabel!
+    @IBOutlet weak var constraintArticleImageHeight: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,20 +34,30 @@ class ArticleTableViewCell: UITableViewCell {
     }
     
     func configureCell(article : Article){
-//        imgProfilePic = article.media.first?.image
+
+        imgProfilePic.sd_setImage(with: URL(string: article.user.first!.avatar), placeholderImage: UIImage(named: "user"))
+        
+        if article.media.count > 0 {
+            constraintArticleImageHeight.constant = 135
+            
+            imgArticle.sd_setImage(with: URL(string: article.media.first!.image), placeholderImage: UIImage(named: "article-placeholder"))
+            
+        }
+        else{
+            constraintArticleImageHeight.constant = 0
+        }
         lblUsername.text = article.user.first?.name
         lblDesignation.text = article.user.first?.designation
 //        let formatter = RelativeDateTimeFormatter()
-        
         lblTime.text = article.createdAt
 //        imgArticle = article.user.first?.avatar
         lblContent.text = article.content
         lblArticleTitle.text = article.media.first?.title
-        linkArticleURL.text = article.media.first?.image
+        linkArticleURL.text = article.media.first?.url
         
         lblLikes.text =  article.likes.roundedWithAbbreviations + " Likes"
         
         lblComments.text = article.likes.roundedWithAbbreviations + " Comments"
     }
-    
+
 }
