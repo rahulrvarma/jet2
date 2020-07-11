@@ -15,6 +15,14 @@ class UsersViewController: UIViewController {
     
     @IBOutlet weak var tableUsers: UITableView!
     
+    init() {
+        super.init(nibName: "UsersViewController", bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     fileprivate func tableViewSetup() {
         tableUsers.dataSource = self
         tableUsers.delegate = self
@@ -24,6 +32,7 @@ class UsersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.title = "Users"
         self.usersVM.usersDelegate = self
         
         tableViewSetup()
@@ -82,5 +91,9 @@ extension UsersViewController : UITableViewDataSource, UITableViewDelegate{
            }
        }
        
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let profileVC = ProfileViewController(user: self.arrUsers[indexPath.row])
+            self.navigationController?.pushViewController(profileVC, animated: true)
+
+        }
 }

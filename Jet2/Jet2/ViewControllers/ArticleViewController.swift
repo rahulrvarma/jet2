@@ -12,7 +12,6 @@ class ArticleViewController: UIViewController {
    
     var page = 1
     var arrArticles = [Article]()
-    var arrUsers = [User]()
     var articleVM = ArticleViewModel()
     
     @IBOutlet weak var tableArticle: UITableView!
@@ -28,6 +27,7 @@ class ArticleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.title = "Articles"
         self.articleVM.articleDelegate = self
         
         tableViewSetup()
@@ -88,9 +88,12 @@ extension ArticleViewController : UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let usersVC = UsersViewController(nibName: "UsersViewController", bundle: nil)
-        self.navigationController?.pushViewController(usersVC, animated: true)
         
+        self.navigationController?.pushViewController(UsersViewController(), animated: true)
+
+//        let profileVC = ProfileViewController(user: self.arrArticles[indexPath.row].user.first!)
+//        self.navigationController?.pushViewController(profileVC, animated: true)
+
     }
     
 }
