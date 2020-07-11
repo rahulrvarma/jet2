@@ -22,6 +22,7 @@ class ArticleTableViewCell: UITableViewCell {
     @IBOutlet weak var lblLikes: UILabel!
     @IBOutlet weak var lblComments: UILabel!
     @IBOutlet weak var constraintArticleImageHeight: NSLayoutConstraint!
+    @IBOutlet weak var constraintArticleUrllHeight: NSLayoutConstraint!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -37,27 +38,47 @@ class ArticleTableViewCell: UITableViewCell {
 
         imgProfilePic.sd_setImage(with: URL(string: article.user.first!.avatar), placeholderImage: UIImage(named: "user"))
         
+        lblTime.text = convertDateFormatter(date: article.createdAt)
+        
+        lblContent.text = article.content
+        lblLikes.text =  article.likes.roundedWithAbbreviations + " Likes"
+        lblComments.text = article.likes.roundedWithAbbreviations + " Comments"
+        
         if article.media.count > 0 {
             constraintArticleImageHeight.constant = 135
-            
+            constraintArticleUrllHeight.constant = 30
+
             imgArticle.sd_setImage(with: URL(string: article.media.first!.image), placeholderImage: UIImage(named: "article-placeholder"))
-            
+            linkArticleURL.text = article.media.first?.url
+            lblArticleTitle.text = article.media.first?.title
         }
         else{
             constraintArticleImageHeight.constant = 0
+            constraintArticleUrllHeight.constant = 0
         }
+        
         lblUsername.text = article.user.first?.name
         lblDesignation.text = article.user.first?.designation
-//        let formatter = RelativeDateTimeFormatter()
-        lblTime.text = article.createdAt
-//        imgArticle = article.user.first?.avatar
-        lblContent.text = article.content
-        lblArticleTitle.text = article.media.first?.title
-        linkArticleURL.text = article.media.first?.url
-        
-        lblLikes.text =  article.likes.roundedWithAbbreviations + " Likes"
-        
-        lblComments.text = article.likes.roundedWithAbbreviations + " Comments"
     }
 
+    
+    public func convertDateFormatter(date: String) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"//this your string date format
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+        dateFormatter.locale = Locale(identifier: "en_US")
+        let convertedDate = dateFormatter.date(from: date)
+        
+        guard dateFormatter.date(from: date) != nil else {
+            assert(false, "no date from string")
+            return ""
+        }
+        
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
+        let timeStamp = dateFormatter.string(from: convertedDate!)
+        print(timeStamp)
+        return timeStamp
+    }
 }

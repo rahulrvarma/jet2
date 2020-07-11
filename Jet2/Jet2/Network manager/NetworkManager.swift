@@ -90,21 +90,66 @@ class NetworkManager
         }
     }
     
+    
+    
     func apiUsers(page:Int, completion : @escaping (Result<[User], Error>)-> () ){
         
-        guard let requestUrl = URL(string: "https://5e99a9b1bc561b0016af3540.mockapi.io/jet2/api/v1/users?page=\(page)&limit=10") else { return }
-        let request = URLRequest(url: requestUrl)
+        if ConnectionCheck.shared.isConneted
+        {
+            guard let requestUrl = URL(string: "https://5e99a9b1bc561b0016af3540.mockapi.io/jet2/api/v1/users?page=\(page)&limit=10") else { return }
+            let request = URLRequest(url: requestUrl)
 
-        session.dataTask(with: request, completionHandler: {
-            (data, response, err) in
+            session.dataTask(with: request, completionHandler: {
+                (data, response, err) in
+                
+                if let err = err {
+                    completion(.failure(err))
+                }
+                else{
+                    
+                    do {
+                        
+                        let result = try JSONDecoder().decode([User].self, from: data!)
+                        if result.count == 0
+                        {
+                            completion(.success(result))
+                        }
+                        else
+                        {
+                            
+                            if page == 1
+                            {
+                                PersistentManager.shared.deleteData(apiName: APINames.APIUser)
+                            }
+                            
+                            PersistentManager.shared.insertData(apiName: APINames.APIUser, apiData: data!, page: page)
+                            
+                            let retreivedData = PersistentManager.shared.retrieveData(apiName: APINames.APIUser, page: page)
+                            let users = try JSONDecoder().decode([User].self, from: retreivedData!)
+                            
+                            print(users.count)
+                            
+                            completion(.success(users))
+                        }
+                    }
+                    catch let jsonErr {
+                        print("Error serialising json", jsonErr)
+                        completion(.failure(jsonErr))
+                    }
+
+                }
+            }).resume()
+
+        }
+        else
+        {
+            print("LOAD OFFLINE DATA")
             
-            if let err = err {
-                completion(.failure(err))
-            }
-            
-            do {
-                let users = try JSONDecoder().decode([User].self, from: data!)
-                //self.arrArticles += articles
+            do{
+                
+                let retreivedData = PersistentManager.shared.retrieveData(apiName: APINames.APIUser, page: page)
+                let users = try JSONDecoder().decode([User].self, from: retreivedData!)
+                
                 print(users.count)
                 
                 completion(.success(users))
@@ -114,7 +159,7 @@ class NetworkManager
                 print("Error serialising json", jsonErr)
                 completion(.failure(jsonErr))
             }
-            }).resume()
-        
+        }
+                
     }
 }

@@ -65,11 +65,13 @@ extension ArticleViewController : ArticleDelegate{
 
 
 extension ArticleViewController : UITableViewDataSource, UITableViewDelegate{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.arrArticles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell") as! ArticleTableViewCell
 
         cell.configureCell(article: self.arrArticles[indexPath.row])
@@ -84,5 +86,11 @@ extension ArticleViewController : UITableViewDataSource, UITableViewDelegate{
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let usersVC = UsersViewController(nibName: "UsersViewController", bundle: nil)
+        self.navigationController?.pushViewController(usersVC, animated: true)
+        
+    }
     
 }
