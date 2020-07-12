@@ -94,10 +94,10 @@ extension ArticleViewController : UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         
-        self.navigationController?.pushViewController(UsersViewController(), animated: true)
+//        self.navigationController?.pushViewController(UsersViewController(), animated: true)
 
-//        let profileVC = ProfileViewController(user: self.arrArticles[indexPath.row].user.first!)
-//        self.navigationController?.pushViewController(profileVC, animated: true)
+        let profileVC = ProfileViewController(user: self.arrArticles[indexPath.row].user.first!)
+        self.navigationController?.pushViewController(profileVC, animated: true)
 
     }
     
