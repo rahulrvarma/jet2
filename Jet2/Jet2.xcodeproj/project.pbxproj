@@ -19,6 +19,8 @@
 		0877896724B9E3E20009F6FE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0877896524B9E3E20009F6FE /* ProfileViewController.swift */; };
 		0877896824B9E3E20009F6FE /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0877896624B9E3E20009F6FE /* ProfileViewController.xib */; };
 		0877896B24BB7D630009F6FE /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0877896A24BB7D630009F6FE /* CommonUtility.swift */; };
+		0877896D24BB80F80009F6FE /* ArticleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0877896C24BB80F80009F6FE /* ArticleInterface.swift */; };
+		0877896F24BB814B0009F6FE /* UsersInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0877896E24BB814B0009F6FE /* UsersInterface.swift */; };
 		088521D724B44098000D3054 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088521D624B44098000D3054 /* AppDelegate.swift */; };
 		088521DB24B44098000D3054 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088521DA24B44098000D3054 /* ArticleViewController.swift */; };
 		088521DE24B44098000D3054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 088521DC24B44098000D3054 /* Main.storyboard */; };
@@ -62,6 +64,8 @@
 		0877896524B9E3E20009F6FE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0877896624B9E3E20009F6FE /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		0877896A24BB7D630009F6FE /* CommonUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
+		0877896C24BB80F80009F6FE /* ArticleInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleInterface.swift; sourceTree = "<group>"; };
+		0877896E24BB814B0009F6FE /* UsersInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersInterface.swift; sourceTree = "<group>"; };
 		088521D324B44098000D3054 /* Jet2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jet2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		088521D624B44098000D3054 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		088521DA24B44098000D3054 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
@@ -218,7 +222,9 @@
 			isa = PBXGroup;
 			children = (
 				08C636AD24B6E1EA006147D3 /* ArticleViewModel.swift */,
+				0877896C24BB80F80009F6FE /* ArticleInterface.swift */,
 				0877895C24B9D7960009F6FE /* UsersViewModel.swift */,
+				0877896E24BB814B0009F6FE /* UsersInterface.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -377,8 +383,10 @@
 			files = (
 				08CF08A124B574EF006EA608 /* NetworkManager.swift in Sources */,
 				0877896224B9DAC40009F6FE /* UsersViewController.swift in Sources */,
+				0877896F24BB814B0009F6FE /* UsersInterface.swift in Sources */,
 				0877895D24B9D7960009F6FE /* UsersViewModel.swift in Sources */,
 				088960AB24B8A29C000C34B6 /* ArticleTableViewCell.swift in Sources */,
+				0877896D24BB80F80009F6FE /* ArticleInterface.swift in Sources */,
 				083A91C424B5C703006C4A76 /* DataParser.swift in Sources */,
 				088521DB24B44098000D3054 /* ArticleViewController.swift in Sources */,
 				0877895824B9D4200009F6FE /* UserTableViewCell.swift in Sources */,
@@ -493,7 +501,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -547,7 +555,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -570,7 +578,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rahulvarma.Jet2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -587,7 +595,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rahulvarma.Jet2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

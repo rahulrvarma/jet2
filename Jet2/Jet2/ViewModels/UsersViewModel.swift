@@ -11,9 +11,13 @@ import Foundation
 protocol UsersDelegate {
     func dataReceivedForUsers(users : [User]?)
 }
-class UsersViewModel {
+class UsersViewModel : UsersInterface {
     
-    var usersDelegate : UsersDelegate?
+    var usersDelegate : UsersDelegate
+    
+    init(delegate : UsersDelegate) {
+        self.usersDelegate = delegate
+    }
     
     func loadUsers(forPage : Int) {
         NetworkManager.shared.apiUsers(page: forPage) { (result) in
@@ -21,10 +25,10 @@ class UsersViewModel {
             switch result {
             case .success(let users):
                 
-                self.usersDelegate?.dataReceivedForUsers(users: users)
+                self.usersDelegate.dataReceivedForUsers(users: users)
                 
             case .failure(let err):
-                self.usersDelegate?.dataReceivedForUsers(users: nil)
+                self.usersDelegate.dataReceivedForUsers(users: nil)
                 
                 print("Failed to fetch articles : ", err.localizedDescription)
             }

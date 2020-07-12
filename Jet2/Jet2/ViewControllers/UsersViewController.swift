@@ -11,7 +11,7 @@ import UIKit
 class UsersViewController: UIViewController {
     var page = 1
     var arrUsers = [User]()
-    var usersVM = UsersViewModel()
+    var usersVM : UsersViewModel!
     var loadMoreData : Bool = true
     
     @IBOutlet weak var tableUsers: UITableView!
@@ -33,9 +33,9 @@ class UsersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.usersVM = UsersViewModel(delegate: self)
+
         self.title = "Users"
-        self.usersVM.usersDelegate = self
-        
         tableViewSetup()
         
         let delay = 1 * Double(NSEC_PER_SEC)
