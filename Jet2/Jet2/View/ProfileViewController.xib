@@ -36,25 +36,25 @@
                     </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tmF-Ps-BfT">
-                    <rect key="frame" x="8" y="320" width="398" height="22"/>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                    <rect key="frame" x="8" y="320" width="398" height="24"/>
+                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IRT-72-JTA">
-                    <rect key="frame" x="8" y="395" width="398" height="21"/>
+                    <rect key="frame" x="8" y="381" width="398" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hon-FP-uMj">
-                    <rect key="frame" x="8" y="432" width="398" height="20.5"/>
+                    <rect key="frame" x="8" y="426" width="398" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Designation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8c-h2-oMP">
-                    <rect key="frame" x="8" y="358" width="398" height="21"/>
+                    <rect key="frame" x="8" y="352" width="398" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -67,19 +67,19 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IRT-72-JTA" secondAttribute="trailing" constant="8" id="4Hc-Wb-x9G"/>
                 <constraint firstItem="K8c-h2-oMP" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="6tL-h2-O2T"/>
                 <constraint firstItem="tmF-Ps-BfT" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="7i2-ux-a11"/>
-                <constraint firstItem="hon-FP-uMj" firstAttribute="top" secondItem="IRT-72-JTA" secondAttribute="bottom" constant="16" id="EbF-PK-oe0"/>
+                <constraint firstItem="hon-FP-uMj" firstAttribute="top" secondItem="IRT-72-JTA" secondAttribute="bottom" constant="24" id="EbF-PK-oe0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tmF-Ps-BfT" secondAttribute="trailing" constant="8" id="JT2-fT-v0a"/>
                 <constraint firstItem="tmF-Ps-BfT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="KE6-ah-Kbv"/>
                 <constraint firstItem="IRT-72-JTA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="NrJ-zs-4RG"/>
                 <constraint firstItem="hon-FP-uMj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="Xhn-NU-kGE"/>
                 <constraint firstItem="hon-FP-uMj" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="c1j-HE-TeX"/>
                 <constraint firstItem="xdb-Lh-jiV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="gMT-dJ-E73"/>
-                <constraint firstItem="IRT-72-JTA" firstAttribute="top" secondItem="K8c-h2-oMP" secondAttribute="bottom" constant="16" id="nZn-cc-7PI"/>
+                <constraint firstItem="IRT-72-JTA" firstAttribute="top" secondItem="K8c-h2-oMP" secondAttribute="bottom" constant="8" id="nZn-cc-7PI"/>
                 <constraint firstItem="tmF-Ps-BfT" firstAttribute="top" secondItem="xdb-Lh-jiV" secondAttribute="bottom" constant="16" id="oeg-E9-LOO"/>
                 <constraint firstItem="IRT-72-JTA" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qXg-uS-sOs"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="K8c-h2-oMP" secondAttribute="trailing" constant="8" id="u4r-gH-jgR"/>
                 <constraint firstItem="xdb-Lh-jiV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="u6U-jS-DbY"/>
-                <constraint firstItem="K8c-h2-oMP" firstAttribute="top" secondItem="tmF-Ps-BfT" secondAttribute="bottom" constant="16" id="z3N-q9-nmQ"/>
+                <constraint firstItem="K8c-h2-oMP" firstAttribute="top" secondItem="tmF-Ps-BfT" secondAttribute="bottom" constant="8" id="z3N-q9-nmQ"/>
             </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
