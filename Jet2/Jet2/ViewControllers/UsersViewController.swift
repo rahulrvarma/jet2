@@ -12,6 +12,7 @@ class UsersViewController: UIViewController {
     var page = 1
     var arrUsers = [User]()
     var usersVM = UsersViewModel()
+    var loadMoreData : Bool = true
     
     @IBOutlet weak var tableUsers: UITableView!
     
@@ -58,6 +59,10 @@ extension UsersViewController : UsersDelegate{
                 page += 1
                 self.arrUsers += nextUsers
             }
+            else
+            {
+                loadMoreData = false
+            }
             print(self.arrUsers.count)
             DispatchQueue.main.async {
                 self.tableUsers.reloadData()
@@ -86,7 +91,7 @@ extension UsersViewController : UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
            
-           if indexPath.row == self.arrUsers.count-2 {
+           if loadMoreData && indexPath.row == self.arrUsers.count-2 {
                loadUsers()
            }
        }

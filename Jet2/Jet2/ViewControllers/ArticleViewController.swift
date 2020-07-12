@@ -11,6 +11,7 @@ import UIKit
 class ArticleViewController: UIViewController {
    
     var page = 1
+    var loadMoreData : Bool = true
     var arrArticles = [Article]()
     var articleVM = ArticleViewModel()
     
@@ -53,6 +54,10 @@ extension ArticleViewController : ArticleDelegate{
                 page += 1
                 self.arrArticles += nextArticle
             }
+            else
+            {
+                loadMoreData = false
+            }
             print(self.arrArticles.count)
             DispatchQueue.main.async {
                 self.tableArticle.reloadData()
@@ -81,7 +86,7 @@ extension ArticleViewController : UITableViewDataSource, UITableViewDelegate{
  
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         
-        if indexPath.row == self.arrArticles.count-2 {
+        if loadMoreData && indexPath.row == self.arrArticles.count-2 {
             loadArticles()
         }
     }

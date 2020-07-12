@@ -35,10 +35,11 @@ class ArticleTableViewCell: UITableViewCell {
     }
     
     func configureCell(article : Article){
-
+        
+        print("Received Date : ",article.createdAt)
         imgProfilePic.sd_setImage(with: URL(string: article.user.first!.avatar), placeholderImage: UIImage(named: "user"))
         
-        lblTime.text = convertDateFormatter(date: article.createdAt)
+        lblTime.text = CommonUtility.shared.convertDateFormatter(date: article.createdAt)
         
         lblContent.text = article.content
         lblLikes.text =  article.likes.roundedWithAbbreviations + " Likes"
@@ -60,25 +61,5 @@ class ArticleTableViewCell: UITableViewCell {
         lblUsername.text = article.user.first?.name
         lblDesignation.text = article.user.first?.designation
     }
-
     
-    public func convertDateFormatter(date: String) -> String {
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"//this your string date format
-        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
-        dateFormatter.locale = Locale(identifier: "en_US")
-        let convertedDate = dateFormatter.date(from: date)
-        
-        guard dateFormatter.date(from: date) != nil else {
-            assert(false, "no date from string")
-            return ""
-        }
-        
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        dateFormatter.timeZone = NSTimeZone(name: "UTC") as TimeZone?
-        let timeStamp = dateFormatter.string(from: convertedDate!)
-        print(timeStamp)
-        return timeStamp
-    }
 }

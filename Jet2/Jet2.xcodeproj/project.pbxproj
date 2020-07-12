@@ -18,6 +18,7 @@
 		0877896324B9DAC40009F6FE /* UsersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0877896124B9DAC40009F6FE /* UsersViewController.xib */; };
 		0877896724B9E3E20009F6FE /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0877896524B9E3E20009F6FE /* ProfileViewController.swift */; };
 		0877896824B9E3E20009F6FE /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0877896624B9E3E20009F6FE /* ProfileViewController.xib */; };
+		0877896B24BB7D630009F6FE /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0877896A24BB7D630009F6FE /* CommonUtility.swift */; };
 		088521D724B44098000D3054 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088521D624B44098000D3054 /* AppDelegate.swift */; };
 		088521DB24B44098000D3054 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 088521DA24B44098000D3054 /* ArticleViewController.swift */; };
 		088521DE24B44098000D3054 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 088521DC24B44098000D3054 /* Main.storyboard */; };
@@ -60,6 +61,7 @@
 		0877896124B9DAC40009F6FE /* UsersViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersViewController.xib; sourceTree = "<group>"; };
 		0877896524B9E3E20009F6FE /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0877896624B9E3E20009F6FE /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		0877896A24BB7D630009F6FE /* CommonUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
 		088521D324B44098000D3054 /* Jet2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jet2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		088521D624B44098000D3054 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		088521DA24B44098000D3054 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		0877896924BB7D550009F6FE /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				0877896A24BB7D630009F6FE /* CommonUtility.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		088521CA24B44098000D3054 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +159,7 @@
 		088521D524B44098000D3054 /* Jet2 */ = {
 			isa = PBXGroup;
 			children = (
+				0877896924BB7D550009F6FE /* Utility */,
 				0877896424B9E3C80009F6FE /* View */,
 				088960A824B88B6C000C34B6 /* CustomCell */,
 				08C636AC24B6E1DA006147D3 /* ViewModels */,
@@ -374,6 +385,7 @@
 				088521D724B44098000D3054 /* AppDelegate.swift in Sources */,
 				083A91CB24B60550006C4A76 /* PersistentManager.swift in Sources */,
 				08C636AE24B6E1EA006147D3 /* ArticleViewModel.swift in Sources */,
+				0877896B24BB7D630009F6FE /* CommonUtility.swift in Sources */,
 				0877896724B9E3E20009F6FE /* ProfileViewController.swift in Sources */,
 				08A7434624B82CDA00806769 /* ConnectionCheck.swift in Sources */,
 				088521E124B44098000D3054 /* Jet2.xcdatamodeld in Sources */,
